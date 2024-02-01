@@ -1007,7 +1007,7 @@ def do_epoch_encode(model: Model, data, corpus, ids, tokenizer, batch_size, save
                                               shuffle=False, num_workers=16)
 
     collection, doc_code = our_encode(data_loader, model, 'doc')
-    doc_code = [0] * len(corpus)
+    # doc_code = [0] * len(corpus)
 
     print(collection.shape)
     index = build_index(collection, gpu=False)
