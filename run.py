@@ -647,7 +647,7 @@ def train(config):
         safe_load_embedding(model.code_embedding, f'{prev_model}.embedding')
 
     if config.get('codebook_init', None) is not None:
-        model.centroids[0].weight.data = torch.tensor(read_pkl(config.get('codebook_init')))
+        model.centroids[-1].weight.data = torch.tensor(read_pkl(config.get('codebook_init')))
 
     for i in range(code_length - 1):
         model.centroids[i].requires_grad_(False)
